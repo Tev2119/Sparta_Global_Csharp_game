@@ -1,0 +1,53 @@
+﻿<Window x:Class="WpfApp2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    
+    <Grid Name="grid1" Grid.Column="{Binding [64], Source={x:Array Type=AddingNewItemEventArgs}}">
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions >
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" Grid.Column="0" Height="50" Width="100" Background="Red" Click="coin1_click" Grid.RowSpan="2" VerticalAlignment="Top" HorizontalAlignment="Right">Coin Drop</Button>
+        <Button Grid.Row="0" Grid.Column="1" Height="auto" Width="auto" Background="Blue" Click="coin2_click">Coin Drop</Button>
+        <Button Grid.Row="0" Grid.Column="2" Height="50" Width="auto" Background="Blue" Click="coin3_click" Grid.ColumnSpan="3" Margin="98.8,0,98,39.6" Grid.RowSpan="2" VerticalAlignment="Bottom">Coin Drop</Button>
+        <Button Grid.Row="0" Grid.Column="4" Height="auto" Width="auto" Background="Red" Click="coin4_click">Coin Drop</Button>
+        <Button Grid.Row="0" Grid.Column="5" Height="auto" Width="auto" Background="Blue" Click="coin5_click">Coin Drop</Button>
+        <Button Grid.Row="0" Grid.Column="6" Height="auto" Width="auto" Background="Red" Click="coin6_click">Coin Drop</Button>
+        <Button Grid.Row="0" Grid.Column="7" Height="auto" Width="auto" Background="Blue" Click="coin7_click">coin drop</Button>
+        <Button Grid.Row="0" Grid.Column="2" Height="auto" Width="auto" Background="Red" Click="coin8_click">Coin Drop</Button>
+        <TextBlock Grid.Column="0" Grid.Row="1" Background="Black"/>
+
+
+    </Grid>
+    <!--<Grid Name="GameBoard">
+        <DataGrid>
+            <controls:DataGrid.Columns>
+                <controls:DataGridTextColumn/>
+                <controls:DataGridComboBoxColumn/>
+            </controls:DataGrid.Columns>
+        </DataGrid>
+    </Grid>-->
+</Window>
