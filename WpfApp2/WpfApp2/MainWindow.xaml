@@ -38,7 +38,7 @@
         <Button Grid.Row="0" Grid.Column="6" Height="auto" Width="auto" Background="Red" Click="coin6_click">Coin Drop</Button>
         <Button Grid.Row="0" Grid.Column="7" Height="auto" Width="auto" Background="Blue" Click="coin7_click">coin drop</Button>
         <Button Grid.Row="0" Grid.Column="2" Height="auto" Width="auto" Background="Red" Click="coin8_click">Coin Drop</Button>
-        <TextBlock Grid.Column="0" Grid.Row="1" Background="Black"/>
+        <TextBlock Grid.Column="0" Grid.Row="5" Background="Black"/>
 
 
     </Grid>

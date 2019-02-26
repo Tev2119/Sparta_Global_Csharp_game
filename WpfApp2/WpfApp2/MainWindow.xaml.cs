@@ -21,63 +21,92 @@ namespace WpfApp2
     /// </summary>
     public partial class MainWindow : Window
     {
-        public void mathew()
+        int player1 = 1;
+        int player2 = 2;
+        public void Matthew()
         {
             for (int i = 1; i < grid1.RowDefinitions.Count; i++)
             {
-                TextBox tblock = new TextBox();
-                tblock.Background = Brushes.Red;
-                tblock.Foreground = Brushes.Orange;
-                TextBox tblock2 = new TextBox();
-                tblock2.Background = Brushes.Blue;
-                tblock2.Foreground = Brushes.Orange;
-                //tblock.SetValue(Grid.RowProperty, 16);
-                //tblock.SetValue(Grid.ColumnProperty, 0);
-                Grid.SetRow(tblock, i);
-                Grid.SetRow(tblock2, i);
-                grid1.Children.Add(tblock);
-                grid1.Children.Add(tblock2);
-
-                //for (int x = 0; x < grid1.ColumnDefinitions.Count; x++)
-                //{
-
-                //}
+                if (grid1.Background == Brushes.OrangeRed)
+                {
+                    if (player1 == 1)
+                    {
+                        TextBox tblock = new TextBox();
+                        tblock.Background = Brushes.Red;
+                        tblock.Foreground = Brushes.Orange;
+                        Grid.SetRow(tblock, i);
+                        grid1.Children.Add(tblock);
+                        player1 = player2;
+                        break;
+                    }
+                    else
+                    {
+                        TextBox tblock2 = new TextBox();
+                        tblock2.Background = Brushes.Blue;
+                        tblock2.Foreground = Brushes.Orange;
+                        Grid.SetRow(tblock2, i);
+                        grid1.Children.Add(tblock2);
+                        player1 = 1;
+                        break;
+                    }
+                }
             }
+            //    for (int i = grid1.RowDefinitions.Count; i >1 ; i++)
+            //{
+            //    int player1 = 1;
+            //    int player2 = 2;
+            //    if (player1 == 1)
+            //    {
+            //        TextBox tblock = new TextBox();
+            //        tblock.Background = Brushes.Red;
+            //        tblock.Foreground = Brushes.Orange;
+            //        Grid.SetRow(tblock, i);
+            //        grid1.Children.Add(tblock);
+            //        player1 = player2;
+            //        break;
+            //    }
+            //    else
+            //    {
+            //        TextBox tblock2 = new TextBox();
+            //        tblock2.Background = Brushes.Blue;
+            //        tblock2.Foreground = Brushes.Orange;
+            //        Grid.SetRow(tblock2, i);
+            //        grid1.Children.Add(tblock2);
+            //        player1 =1;
+            //        break;
+            //    }
+
+            //    //tblock.SetValue(Grid.RowProperty, 16);
+            //    //tblock.SetValue(Grid.ColumnProperty, 0);
+
+            //    //for (int x = 0; x < grid1.ColumnDefinitions.Count; x++)
+            //    //{
+
+            //    //}
+            //}
         }
         
         GridManipulation gameBaord = new GridManipulation();
         public MainWindow()
         {
             InitializeComponent();
-            //grid1.Background = new SolidColorBrush(Colors.Orange);
-            //grid1.GetType();
-           
-            //Console.WriteLine(grid1);
-
         }
 
         
         private void coin1_click(object sender, RoutedEventArgs e)
         {
-            //TextBox tblock = new TextBox();
-            //tblock.Background = Brushes.Red;
-            //tblock.Foreground = Brushes.Orange;
-            //TextBox tblock2 = new TextBox();
-            //tblock2.Background = Brushes.Blue;
-            //tblock2.Foreground = Brushes.Orange;
-            ////tblock.SetValue(Grid.RowProperty, 16);
-            ////tblock.SetValue(Grid.ColumnProperty, 0);
-            //Grid.SetRow(tblock, 9);
-            //Grid.SetRow(tblock2, 8);
-            //grid1.Children.Add(tblock);
-            //grid1.Children.Add(tblock2);
-            //int[] col = new int[64];
-            //grid1.Background.
-           
+      
+
+            //for (int x = 0; x < grid1.ColumnDefinitions.Count; x++)
+            //{
+
+            //}
+
+            Matthew();
         }
         private void coin2_click(object sender, RoutedEventArgs e)
         {
-
+            grid1.Background = Brushes.OrangeRed;
         }
 
         private void coin8_click(object sender, RoutedEventArgs e)
@@ -111,3 +140,42 @@ namespace WpfApp2
         }
     }
 }
+//TextBox tblock = new TextBox();
+//tblock.Background = Brushes.Red;
+//tblock.Foreground = Brushes.Orange;
+//TextBox tblock2 = new TextBox();
+//tblock2.Background = Brushes.Blue;
+//tblock2.Foreground = Brushes.Orange;
+////tblock.SetValue(Grid.RowProperty, 16);
+////tblock.SetValue(Grid.ColumnProperty, 0);
+//Grid.SetRow(tblock, 9);
+//Grid.SetRow(tblock2, 8);
+//grid1.Children.Add(tblock);
+//grid1.Children.Add(tblock2);
+//int[] col = new int[64];
+//grid1.Background.
+
+
+//if (player1 == 1)
+//{
+//    TextBox tblock = new TextBox();
+//    tblock.Background = Brushes.Red;
+//    tblock.Foreground = Brushes.Orange;
+//    Grid.SetRow(tblock, i);
+//    grid1.Children.Add(tblock);
+//    player1 = player2;
+//    break;
+//}
+//else
+//{
+//    TextBox tblock2 = new TextBox();
+//    tblock2.Background = Brushes.Blue;
+//    tblock2.Foreground = Brushes.Orange;
+//    Grid.SetRow(tblock2, i);
+//    grid1.Children.Add(tblock2);
+//    player1 = 1;
+//    break;
+//}
+
+//tblock.SetValue(Grid.RowProperty, 16);
+//tblock.SetValue(Grid.ColumnProperty, 0);
