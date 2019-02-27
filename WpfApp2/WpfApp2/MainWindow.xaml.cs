@@ -21,69 +21,46 @@ namespace WpfApp2
     /// </summary>
     public partial class MainWindow : Window
     {
+        int[,] grid = { { 0 }, {8} };
         int player1 = 1;
         int player2 = 2;
-        public void Matthew()
+        public void DropCoin()
         {
-            for (int i = grid1.RowDefinitions.Count; i >1 ; i--)
+            if (grid1.Background == Brushes.OrangeRed)
             {
-                if (grid1.Background == Brushes.OrangeRed)
-                {
-                    if (player1 == 1)
+               
+                    for (int j = grid1.RowDefinitions.Count; j > 0; j--)
                     {
+                        //grid = new int[i, j];
                         TextBox tblock = new TextBox();
-                        tblock.Background = Brushes.Red;
-                        tblock.Foreground = Brushes.Orange;
-                        Grid.SetRow(tblock, i);
-                        grid1.Children.Add(tblock);
-                        player1 = player2;
-                        break;
-                    }
-                    else
-                    {
                         TextBox tblock2 = new TextBox();
-                        tblock2.Background = Brushes.Blue;
-                        tblock2.Foreground = Brushes.Orange;
-                        Grid.SetRow(tblock2, i);
-                        grid1.Children.Add(tblock2);
-                        player1 = 1;
-                        break;
+
+
+                        if (tblock.GetLineText(j) != "2" || tblock.GetLineText(j) != "1")
+                        {
+                            if (player1 ==1)
+                            {
+                                tblock.Background = Brushes.Red;
+                                tblock.Foreground = Brushes.Orange;
+                                Grid.SetRow(tblock, j);
+                                grid1.Children.Add(tblock);
+                                player1 = 2;
+
+                                break;
+                            }
+                            else
+                            {
+                                tblock2.Background = Brushes.Blue;
+                                tblock2.Foreground = Brushes.Orange;
+                                Grid.SetRow(tblock2, j);
+                                grid1.Children.Add(tblock2);
+                                player1 = 1;
+                                break;
+
+                            }
+                        }
                     }
-                }
             }
-            //    for (int i = grid1.RowDefinitions.Count; i >1 ; i++)
-            //{
-            //    int player1 = 1;
-            //    int player2 = 2;
-            //    if (player1 == 1)
-            //    {
-            //        TextBox tblock = new TextBox();
-            //        tblock.Background = Brushes.Red;
-            //        tblock.Foreground = Brushes.Orange;
-            //        Grid.SetRow(tblock, i);
-            //        grid1.Children.Add(tblock);
-            //        player1 = player2;
-            //        break;
-            //    }
-            //    else
-            //    {
-            //        TextBox tblock2 = new TextBox();
-            //        tblock2.Background = Brushes.Blue;
-            //        tblock2.Foreground = Brushes.Orange;
-            //        Grid.SetRow(tblock2, i);
-            //        grid1.Children.Add(tblock2);
-            //        player1 =1;
-            //        break;
-            //    }
-
-            //    //tblock.SetValue(Grid.RowProperty, 16);
-            //    //tblock.SetValue(Grid.ColumnProperty, 0);
-
-            //    //for (int x = 0; x < grid1.ColumnDefinitions.Count; x++)
-            //    //{
-
-            //    //}
-            //}
         }
         
         GridManipulation gameBaord = new GridManipulation();
@@ -95,14 +72,7 @@ namespace WpfApp2
         
         private void coin1_click(object sender, RoutedEventArgs e)
         {
-      
-
-            //for (int x = 0; x < grid1.ColumnDefinitions.Count; x++)
-            //{
-
-            //}
-
-            Matthew();
+                  DropCoin();
         }
         private void coin2_click(object sender, RoutedEventArgs e)
         {
