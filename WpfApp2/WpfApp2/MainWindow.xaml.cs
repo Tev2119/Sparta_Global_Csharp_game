@@ -25,7 +25,7 @@ namespace WpfApp2
         int player2 = 2;
         public void Matthew()
         {
-            for (int i = 1; i < grid1.RowDefinitions.Count; i++)
+            for (int i = grid1.RowDefinitions.Count; i >1 ; i--)
             {
                 if (grid1.Background == Brushes.OrangeRed)
                 {
