@@ -29,33 +29,89 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <Button Grid.Row="0" Grid.Column="0" Height="50" Width="100" Background="Red" Click="coin1_click" Grid.RowSpan="2" VerticalAlignment="Top" HorizontalAlignment="Right">Coin Drop</Button>
+        <Button Grid.Row="0" Grid.Column="0" Height="auto" Width="auto" Background="Red" Click="coin1_Click" >Coin Drop</Button>
         <Button Grid.Row="0" Grid.Column="1" Height="auto" Width="auto" Background="Blue" Click="coin2_click">Coin Drop</Button>
-        <Button Grid.Row="0" Grid.Column="2" Height="auto" Width="auto" Background="Red" Click="coin8_click">Coin Drop</Button>
-        <Button Grid.Row="0" Grid.Column="3" Height="auto" Width="auto" Background="Blue" Click="coin8_click">Coin Drop</Button>
-        <Button Grid.Row="0" Grid.Column="4" Height="auto" Width="auto" Background="Red" Click="coin4_click">Coin Drop</Button>
-        <Button Grid.Row="0" Grid.Column="5" Height="auto" Width="auto" Background="Blue" Click="coin5_click">Coin Drop</Button>
-        <Button Grid.Row="0" Grid.Column="6" Height="auto" Width="auto" Background="Red" Click="coin6_click">Coin Drop</Button>
-        <Button Grid.Row="0" Grid.Column="7" Height="auto" Width="auto" Background="Blue" Click="coin7_click">coin drop</Button>
-        <UniformGrid Grid.Column="1" Grid.Row="3" Background="DarkOrange"></UniformGrid>
-        <TextBlock Grid.Column="0" Grid.Row="1" Text="2"  Background="OrangeRed"/>
+        <Button Grid.Row="0" Grid.Column="2" Height="auto" Width="auto" Background="Red" Click="coin3_click">Coin Drop</Button>
+        <Button Grid.Row="0" Grid.Column="3" Height="auto" Width="auto" Background="Blue" Click="coin4_click">Coin Drop</Button>
+        <Button Grid.Row="0" Grid.Column="4" Height="auto" Width="auto" Background="Red" Click="coin5_click">Coin Drop</Button>
+        <Button Grid.Row="0" Grid.Column="5" Height="auto" Width="auto" Background="Blue" Click="coin6_click">Coin Drop</Button>
+        <Button Grid.Row="0" Grid.Column="6" Height="auto" Width="auto" Background="Red" Click="coin7_click">Coin Drop</Button>
+        <Button Grid.Row="0" Grid.Column="7" Height="auto" Width="auto" Background="Blue" Click="coin8_click">coin drop</Button>
+        
+        <TextBlock Grid.Column="0" Grid.Row="1" Text="1"  Background="OrangeRed"/>
         <TextBlock Grid.Column="0" Grid.Row="2" Text="2"  Background="Red"/>
-        <TextBlock Grid.Column="0" Grid.Row="3" Text="2"  Background="OrangeRed"/>
+        <TextBlock Grid.Column="0" Grid.Row="3" Text="1"  Background="OrangeRed"/>
         <TextBlock Grid.Column="0" Grid.Row="4" Text="2"  Background="Red"/>
-        <TextBlock Grid.Column="0" Grid.Row="5" Text="2"  Background="OrangeRed"/>
+        <TextBlock Grid.Column="0" Grid.Row="5" Text="1"  Background="OrangeRed"/>
         <TextBlock Grid.Column="0" Grid.Row="6" Text="2"  Background="Red"/>
-        <TextBlock Grid.Column="0" Grid.Row="7" Text="2"  Background="OrangeRed"/>
+        <TextBlock Grid.Column="0" Grid.Row="7" Text="1"  Background="OrangeRed"/>
         <TextBlock Grid.Column="0" Grid.Row="8" Text="2"  Background="red"/>
 
+        <TextBlock Grid.Column="1" Grid.Row="1" Text="2"  Background="OrangeRed"/>
+        <TextBlock Grid.Column="1" Grid.Row="2" Text="1"  Background="Red"/>
+        <TextBlock Grid.Column="1" Grid.Row="3" Text="2"  Background="OrangeRed"/>
+        <TextBlock Grid.Column="1" Grid.Row="4" Text="1"  Background="Red"/>
+        <TextBlock Grid.Column="1" Grid.Row="5" Text="2"  Background="OrangeRed"/>
+        <TextBlock Grid.Column="1" Grid.Row="6" Text="1"  Background="Red"/>
+        <TextBlock Grid.Column="1" Grid.Row="7" Text="2"  Background="OrangeRed"/>
+        <TextBlock Grid.Column="1" Grid.Row="8" Text="2"  Background="red"/>
 
+        <TextBlock Grid.Column="2" Grid.Row="1" Text="2"  Background="OrangeRed"/>
+        <TextBlock Grid.Column="2" Grid.Row="2" Text="2"  Background="Red"/>
+        <TextBlock Grid.Column="2" Grid.Row="3" Text="2"  Background="OrangeRed"/>
+        <TextBlock Grid.Column="2" Grid.Row="4" Text="2"  Background="Red"/>
+        <TextBlock Grid.Column="2" Grid.Row="5" Text="2"  Background="OrangeRed"/>
+        <TextBlock Grid.Column="2" Grid.Row="6" Text="2"  Background="Red"/>
+        <TextBlock Grid.Column="2" Grid.Row="7" Text="2"  Background="OrangeRed"/>
+        <TextBlock Grid.Column="2" Grid.Row="8" Text="2"  Background="red"/>
 
+        <TextBlock Grid.Column="3" Grid.Row="1" Text="2"  Background="OrangeRed"/>
+        <TextBlock Grid.Column="3" Grid.Row="2" Text="2"  Background="Red"/>
+        <TextBlock Grid.Column="3" Grid.Row="3" Text="2"  Background="OrangeRed"/>
+        <TextBlock Grid.Column="3" Grid.Row="4" Text="2"  Background="Red"/>
+        <TextBlock Grid.Column="3" Grid.Row="5" Text="2"  Background="OrangeRed"/>
+        <TextBlock Grid.Column="3" Grid.Row="6" Text="2"  Background="Red"/>
+        <TextBlock Grid.Column="3" Grid.Row="7" Text="2"  Background="OrangeRed"/>
+        <TextBlock Grid.Column="3" Grid.Row="8" Text="2"  Background="red"/>
+
+        <TextBlock Grid.Column="4" Grid.Row="1" Text="2"  Background="OrangeRed"/>
+        <TextBlock Grid.Column="4" Grid.Row="2" Text="2"  Background="Red"/>
+        <TextBlock Grid.Column="4" Grid.Row="3" Text="2"  Background="OrangeRed"/>
+        <TextBlock Grid.Column="4" Grid.Row="4" Text="2"  Background="Red"/>
+        <TextBlock Grid.Column="4" Grid.Row="5" Text="2"  Background="OrangeRed"/>
+        <TextBlock Grid.Column="4" Grid.Row="6" Text="2"  Background="Red"/>
+        <TextBlock Grid.Column="4" Grid.Row="7" Text="2"  Background="OrangeRed"/>
+        <TextBlock Grid.Column="4" Grid.Row="8" Text="2"  Background="red"/>
+
+        <TextBlock Grid.Column="5" Grid.Row="1" Text="2"  Background="OrangeRed"/>
+        <TextBlock Grid.Column="5" Grid.Row="2" Text="2"  Background="Red"/>
+        <TextBlock Grid.Column="5" Grid.Row="3" Text="2"  Background="OrangeRed"/>
+        <TextBlock Grid.Column="5" Grid.Row="4" Text="2"  Background="Red"/>
+        <TextBlock Grid.Column="5" Grid.Row="5" Text="2"  Background="OrangeRed"/>
+        <TextBlock Grid.Column="5" Grid.Row="6" Text="2"  Background="Red"/>
+        <TextBlock Grid.Column="5" Grid.Row="7" Text="2"  Background="OrangeRed"/>
+        <TextBlock Grid.Column="5" Grid.Row="8" Text="2"  Background="red"/>
+
+        <TextBlock Grid.Column="6" Grid.Row="1" Text="2"  Background="OrangeRed"/>
+        <TextBlock Grid.Column="6" Grid.Row="2" Text="2"  Background="Red"/>
+        <TextBlock Grid.Column="6" Grid.Row="3" Text="2"  Background="OrangeRed"/>
+        <TextBlock Grid.Column="6" Grid.Row="4" Text="2"  Background="Red"/>
+        <TextBlock Grid.Column="6" Grid.Row="5" Text="2"  Background="OrangeRed"/>
+        <TextBlock Grid.Column="6" Grid.Row="6" Text="2"  Background="Red"/>
+        <TextBlock Grid.Column="6" Grid.Row="7" Text="2"  Background="OrangeRed"/>
+        <TextBlock Grid.Column="6" Grid.Row="8" Text="2"  Background="red"/>
+
+        <TextBlock Grid.Column="7" Grid.Row="1" Text="2"  Background="OrangeRed"/>
+        <TextBlock Grid.Column="7" Grid.Row="2" Text="2"  Background="Red"/>
+        <TextBlock Grid.Column="7" Grid.Row="3" Text="2"  Background="OrangeRed"/>
+        <TextBlock Grid.Column="7" Grid.Row="4" Text="2"  Background="Red"/>
+        <TextBlock Grid.Column="7" Grid.Row="5" Text="2"  Background="OrangeRed"/>
+        <TextBlock Grid.Column="7" Grid.Row="6" Text="2"  Background="Red"/>
+        <TextBlock Grid.Column="7" Grid.Row="7" Text="2"  Background="OrangeRed"/>
+        <TextBlock Grid.Column="7" Grid.Row="8" Text="2"  Background="red"/>
+        
+        
+        <!--<TextBlock Grid.Column="0" Grid.Row="0" Text="2"  Background="black"/>-->
     </Grid>
-    <!--<Grid Name="GameBoard">
-        <DataGrid>
-            <controls:DataGrid.Columns>
-                <controls:DataGridTextColumn/>
-                <controls:DataGridComboBoxColumn/>
-            </controls:DataGrid.Columns>
-        </DataGrid>
-    </Grid>-->
+    
 </Window>

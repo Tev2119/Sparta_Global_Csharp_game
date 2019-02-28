@@ -21,92 +21,96 @@ namespace WpfApp2
     /// </summary>
     public partial class MainWindow : Window
     {
-        int[,] grid = { { 0 }, {8} };
+        public UIElement GridChildArray(int r, int c)
+        {
+            for (int i = 0; i <grid1.Children.Count; i++)
+            {
+                UIElement e = grid1.Children[i];
+                if (Grid.GetRow(e) == r && Grid.GetColumn(e) == c)
+                    return e;
+            }
+            return null;
+        }
         int player1 = 1;
         int player2 = 2;
-        public void DropCoin()
+        public void DropCoin(int x)
         {
-            if (grid1.Background == Brushes.OrangeRed)
+            if (grid1.Background == Brushes.DarkOrange)
             {
-               
-                    for (int j = grid1.RowDefinitions.Count; j > 0; j--)
+                for (int i = 0; i < 8; i++)
+                {
+                    for (int j = 8; j > i; j--)
                     {
-                        //grid = new int[i, j];
-                        TextBox tblock = new TextBox();
-                        TextBox tblock2 = new TextBox();
+                        TextBlock child = (TextBlock)GridChildArray(j, x);
 
-
-                        if (tblock.GetLineText(j) != "2" || tblock.GetLineText(j) != "1")
+                        if (child.Text == "2" || child.Text == "1")
                         {
-                            if (player1 ==1)
+                            if (player1 == 1)
                             {
-                                tblock.Background = Brushes.Red;
-                                tblock.Foreground = Brushes.Orange;
-                                Grid.SetRow(tblock, j);
-                                grid1.Children.Add(tblock);
-                                player1 = 2;
-
-                                break;
+                                child.Background = Brushes.Black;
+                                child.Text = "player1";
+                                player1 = player2;
+                                //GetGridChild(j, 0).Background = Brushes.Black;
                             }
                             else
                             {
-                                tblock2.Background = Brushes.Blue;
-                                tblock2.Foreground = Brushes.Orange;
-                                Grid.SetRow(tblock2, j);
-                                grid1.Children.Add(tblock2);
+                                child.Background = Brushes.DeepPink;
+                                child.Text = "player2";
                                 player1 = 1;
-                                break;
-
                             }
+                            break;
                         }
                     }
+                    break;
+                }
             }
         }
-        
         GridManipulation gameBaord = new GridManipulation();
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        
-        private void coin1_click(object sender, RoutedEventArgs e)
+        private void coin1_Click(object sender, RoutedEventArgs e)
         {
-                  DropCoin();
+            DropCoin(0);
         }
+
         private void coin2_click(object sender, RoutedEventArgs e)
         {
-            grid1.Background = Brushes.OrangeRed;
-        }
-
-        private void coin8_click(object sender, RoutedEventArgs e)
-        {
-
+            grid1.Background = Brushes.DarkOrange;
+            grid1.ShowGridLines = true;
+            DropCoin(1);
         }
 
         private void coin3_click(object sender, RoutedEventArgs e)
         {
-
+            DropCoin(2);
         }
 
         private void coin4_click(object sender, RoutedEventArgs e)
         {
-
+            DropCoin(3);
         }
 
         private void coin5_click(object sender, RoutedEventArgs e)
         {
-
+            DropCoin(4);
         }
 
         private void coin6_click(object sender, RoutedEventArgs e)
         {
-
+            DropCoin(5);
         }
 
         private void coin7_click(object sender, RoutedEventArgs e)
         {
+            DropCoin(6);
+        }
 
+        private void coin8_click(object sender, RoutedEventArgs e)
+        {
+            DropCoin(7);
         }
     }
 }
