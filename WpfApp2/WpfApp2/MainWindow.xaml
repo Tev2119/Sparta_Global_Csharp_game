@@ -5,11 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    
-    <Grid Name="grid1" Grid.Column="{Binding [64], Source={x:Array Type=AddingNewItemEventArgs}}">
+        ResizeMode="NoResize"
+        Title="MainWindow" Height="756" Width="774.8">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="OrangeRed"/>
+            <Setter Property="BorderThickness" Value="1.5"/>
+        </Style>
+    </Window.Resources>
+    <Grid Name="grid1" Margin="0,91,3,0.4">
         <Grid.ColumnDefinitions >
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="90"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -27,16 +33,16 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Button Grid.Row="0" Grid.Column="0" Height="auto" Width="auto" Background="Red"  Click="coin1_Click" >Coin Drop</Button>
-        <Button Grid.Row="0" Grid.Column="1" Height="auto" Width="auto" Background="Blue" Click="coin2_click">Coin Drop</Button>
-        <Button Grid.Row="0" Grid.Column="2" Height="auto" Width="auto" Background="Red" Click="coin3_click">Coin Drop</Button>
-        <Button Grid.Row="0" Grid.Column="3" Height="auto" Width="auto" Background="Blue" Click="coin4_click">Coin Drop</Button>
-        <Button Grid.Row="0" Grid.Column="4" Height="auto" Width="auto" Background="Red" Click="coin5_click">Coin Drop</Button>
-        <Button Grid.Row="0" Grid.Column="5" Height="auto" Width="auto" Background="Blue" Click="coin6_click">Coin Drop</Button>
-        <Button Grid.Row="0" Grid.Column="6" Height="auto" Width="auto" Background="Red" Click="coin7_click">Coin Drop</Button>
-        <Button Grid.Row="0" Grid.Column="7" Height="auto" Width="auto" Background="Blue" Click="coin8_click">coin drop</Button>
+        <TextBlock Tag="0" Grid.Row="0" Grid.Column="0" Height="auto" Width="auto" Background="Red"  PreviewMouseDown="coin1_Click" >Coin Drop</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="1" Height="auto" Width="auto" Background="Blue" PreviewMouseDown="coin2_click">Coin Drop</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="2" Height="auto" Width="auto" Background="Red" PreviewMouseDown="coin3_click">Coin Drop</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="3" Height="auto" Width="auto" Background="Blue" PreviewMouseDown="coin4_click">Coin Drop</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="4" Height="auto" Width="auto" Background="Red" PreviewMouseDown="coin5_click">Coin Drop</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="5" Height="auto" Width="auto" Background="Blue" PreviewMouseDown="coin6_click">Coin Drop</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="6" Height="auto" Width="auto" Background="Red" PreviewMouseDown="coin7_click">Coin Drop</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="7" Height="auto" Width="auto" Background="Blue" PreviewMouseDown="coin8_click">coin drop</TextBlock>
 
         <TextBlock Name="r1c0" Grid.Column="0" Grid.Row="1" Text="1"  Background="OrangeRed"/>
         <TextBlock Name="r2c0" Grid.Column="0" Grid.Row="2" Text="2"  Background="Red"/>
@@ -109,9 +115,15 @@
         <TextBlock Name="r6c7" Grid.Column="7" Grid.Row="6" Text="1"  Background="Red"/>
         <TextBlock Name="r7c7" Grid.Column="7" Grid.Row="7" Text="3"  Background="OrangeRed"/>
         <TextBlock Name="r8c7" Grid.Column="7" Grid.Row="8" Text="2"  Background="red"/>
-        
-        
+        <Button x:Name="Start_Game" Content="Start Game" HorizontalAlignment="Left" VerticalAlignment="Top" Width="765" Margin="0,-91,-0.2,0" Grid.ColumnSpan="8" Height="86" Click="Button_Click" FontSize="48" FontWeight="Bold" FontStyle="Italic">
+            <Button.Background>
+                <ImageBrush ImageSource="shanron.jpg"/>
+            </Button.Background>
+
+        </Button>
+
+
         <!--<TextBlock Grid.Column="0" Grid.Row="0" Text="2"  Background="black"/>-->
     </Grid>
-    
+
 </Window>
