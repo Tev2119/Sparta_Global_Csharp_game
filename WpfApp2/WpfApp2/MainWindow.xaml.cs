@@ -17,12 +17,28 @@ using Connect4;
 
 namespace WpfApp2
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-       
+        //Player & Win variables
+        int player1 = 1;
+        int player2 = 2;
+        TextBlock child;
+        TextBlock child1;
+        TextBlock child2;
+        TextBlock child3;
+
+        //GridArray[ r , c ] from Base CLass
+        public UIElement GridChildArray(int r, int c)
+        {
+            for (int i = 0; i < grid1.Children.Count; i++)
+            {
+                UIElement e = grid1.Children[i];
+                if (Grid.GetRow(e) == r && Grid.GetColumn(e) == c)
+                    return e;
+            }
+            return null;
+        }
+
         //GridManipulation gameBaord = new GridManipulation();
         public MainWindow()
         {
@@ -80,22 +96,8 @@ namespace WpfApp2
             DropCoin(7);
             CalculateWinner();
         }
-        public UIElement GridChildArray(int r, int c)
-        {
-            for (int i = 0; i < grid1.Children.Count; i++)
-            {
-                UIElement e = grid1.Children[i];
-                if (Grid.GetRow(e) == r && Grid.GetColumn(e) == c)
-                    return e;
-            }
-            return null;
-        }
-        int player1 = 1;
-        int player2 = 2;
-        TextBlock child;
-        TextBlock child1;
-        TextBlock child2;
-        TextBlock child3;
+
+        //create player variables
         public void DropCoin(int x)
         {
             if (grid1.Background == Brushes.DarkOrange)
@@ -112,7 +114,6 @@ namespace WpfApp2
                             {
                                 child.Background = Brushes.Black;
                                 child.Text = "player1";
-
                                 player1 = player2;
                                 //GetGridChild(j, 0).Background = Brushes.Black;
                             }
@@ -129,9 +130,11 @@ namespace WpfApp2
                 //}
             }
         }
+
+        //calculate winner & Player
         public void CalculateWinner()
         {
-            if (/*WinnerInColumn() || WinnerInRow() || WinnerInDR() ||*/ WinnerInDL())
+            if (/*WinnerInColumn() || */WinnerInRow() /*|| WinnerInDR() /*||WinnerInDL()*/)
             {
                 if (player1 == 1)
                 {
@@ -144,33 +147,32 @@ namespace WpfApp2
                 }
             }
         }
+
+        /// <summary>
+        /// Win Statements & checks
+        /// </summary>
         private bool WinnerInColumn()
         {
-
             if (grid1.Background == Brushes.DarkOrange)
             {
-                if (grid1.Background == Brushes.DarkOrange)
+                for (int i = 0; i < 7; i++)
                 {
-                    for (int i = 1; i < 7; i++)
+                    for (int j = 8; j > 0 + 3; j--)
                     {
-                        for (int j = 8; j > 0+3; j--)
+                        child = (TextBlock)GridChildArray(j, i);
+                        child1 = (TextBlock)GridChildArray(j - 1, i);
+                        child2 = (TextBlock)GridChildArray(j - 2, i);
+                        child3 = (TextBlock)GridChildArray(j - 3, i);
+
+                        if (child.Text == child1.Text)
                         {
-                             child = (TextBlock)GridChildArray(j, 0);
-                             child1 = (TextBlock)GridChildArray(j-1, 0);
-                            child2 = (TextBlock)GridChildArray(j - 2, 0);
-                            child3 = (TextBlock)GridChildArray(j - 3, 0);
+                            if (child1.Text == child2.Text && child2.Text == child3.Text)
+                            {
+                                return true;
+                            }
+                            break;
 
-                            if (child.Text ==  child1.Text)
-                             {
-                                  if (child1.Text == child2.Text && child2.Text == child3.Text)
-                                  {
-                                     return true;
-                                  }
-                                  break;
-                            
-                             }
                         }
-
                     }
                 }
             }
@@ -178,19 +180,16 @@ namespace WpfApp2
         }
         private bool WinnerInRow()
         {
-
-            if (grid1.Background == Brushes.DarkOrange)
+            if (child.Text != "2" || child.Text != "1" || child.Text != "3")
             {
-                if (grid1.Background == Brushes.DarkOrange)
+                for (int f = 0; f < 7; f++)
                 {
-                    for (int i = 0; i < 7-3; i++)
-                    {
-                        for (int j = 8; j > 0 ; j--)
+                        for (int p = 8; p >= 1 ; p--)
                         {
-                            child = (TextBlock)GridChildArray(j , i);
-                            child1 = (TextBlock)GridChildArray(j , i+1);
-                            child2 = (TextBlock)GridChildArray(j , i+2);
-                            child3 = (TextBlock)GridChildArray(j , i+3);
+                            child = (TextBlock)GridChildArray(p, f);
+                            child1 = (TextBlock)GridChildArray(p, f+1);
+                            child2 = (TextBlock)GridChildArray(p, f+2);
+                            child3 = (TextBlock)GridChildArray(p, f+3);
 
                             if (child.Text == child1.Text)
                             {
@@ -198,12 +197,9 @@ namespace WpfApp2
                                 {
                                     return true;
                                 }
-                                break;
-
                             }
+                        break;
                         }
-
-                    }
                 }
             }
             return false;
@@ -213,11 +209,9 @@ namespace WpfApp2
 
             if (grid1.Background == Brushes.DarkOrange)
             {
-                if (grid1.Background == Brushes.DarkOrange)
-                {
-                    for (int i = 0; i < 7 - 3; i++)
+                    for (int i = 0; i <= 7 - 3; i++)
                     {
-                        for (int j = 8; j > 0 + 3; j--)
+                        for (int j = 8; j >= 1 + 3; j--)
                         {
                             child = (TextBlock)GridChildArray(j, i);
                             child1 = (TextBlock)GridChildArray(j - 1, i + 1);
@@ -236,7 +230,6 @@ namespace WpfApp2
                         }
 
                     }
-                }
             }
             return false;
         }
@@ -245,16 +238,14 @@ namespace WpfApp2
 
             if (grid1.Background == Brushes.DarkOrange)
             {
-                if (grid1.Background == Brushes.DarkOrange)
-                {
-                    for (int i = 7; i >= 0 + 3; i--)
+                    for (int y = 7; y > 0 + 3; y--)
                     {
-                        for (int j = 8; j >= 0 + 3; j--)
+                        for (int x = 8; x >= 1 + 3; x--)
                         {
-                            child = (TextBlock)GridChildArray(j, i);
-                            child1 = (TextBlock)GridChildArray(j - 1, i - 1);
-                            child2 = (TextBlock)GridChildArray(j - 2, i - 2);
-                            child3 = (TextBlock)GridChildArray(j - 3, i - 3);
+                            child = (TextBlock)GridChildArray(x, y);
+                            child1 = (TextBlock)GridChildArray(x - 1, y - 1);
+                            child2 = (TextBlock)GridChildArray(x - 2, y - 2);
+                            child3 = (TextBlock)GridChildArray(x - 3, y - 3);
 
                             if (child.Text == child1.Text)
                             {
@@ -263,85 +254,31 @@ namespace WpfApp2
                                     return true;
                                 }
                                 break;
-
                             }
                         }
-
                     }
-                }
             }
             return false;
         }
 
-
-
-        //public bool WinnerInColumn()
-        //{
-        //    //for (int i = 0; i < 8; i++)
-        //    //{
-
-        //    //    for (int j = 8; j > i; j--)
-        //    //    {
-        //            //TextBlock child = (TextBlock)GridChildArray(j, b);
-        //            if (r8c0.Text == r7c0.Text || r7c0.Text == r6c0.Text || r6c0.Text == r5c0.Text || r5c0.Text == r4c0.Text || r4c0.Text == r3c0.Text || r8c1.Text == r7c1.Text || r7c1.Text == r6c1.Text || r6c1.Text == r5c1.Text || r5c1.Text == r4c1.Text || r4c1.Text == r3c2.Text || r8c2.Text == r7c2.Text || r7c2.Text == r6c2.Text || r6c2.Text == r5c2.Text || r5c2.Text == r4c2.Text || r4c2.Text == r3c2.Text || r8c3.Text == r7c3.Text || r7c3.Text == r6c3.Text || r6c3.Text == r5c3.Text || r5c3.Text == r4c3.Text || r4c3.Text == r3c3.Text || r8c4.Text == r7c4.Text || r7c4.Text == r6c4.Text || r6c4.Text == r5c4.Text || r5c4.Text == r4c4.Text || r4c4.Text == r3c4.Text || r8c5.Text == r7c5.Text || r7c5.Text == r6c5.Text || r6c5.Text == r5c5.Text || r5c5.Text == r4c5.Text || r4c5.Text == r3c5.Text || r8c6.Text == r7c6.Text || r7c6.Text == r6c6.Text /*|| r6c6.Text == r5c7.Text || r5c7.Text == r4c7.Text || r4c7.Text == r3c7.Text*/)
-        //            {
-
-        //                if (r7c0.Text == r6c0.Text && r6c0.Text == r5c0.Text || r6c0.Text == r5c0.Text && r5c0.Text == r4c0.Text || r5c0.Text == r4c0.Text && r4c0.Text == r3c0.Text || r3c0.Text == r2c0.Text && r2c0.Text == r1c0.Text || r7c1.Text == r6c1.Text && r6c1.Text == r5c1.Text || r6c1.Text == r5c1.Text && r5c1.Text == r4c1.Text || r5c1.Text == r4c1.Text && r4c1.Text == r3c1.Text || r3c1.Text == r2c1.Text && r2c1.Text == r1c1.Text || r7c2.Text == r6c2.Text && r6c2.Text == r5c2.Text || r6c2.Text == r5c2.Text && r5c2.Text == r4c2.Text || r5c2.Text == r4c2.Text && r4c2.Text == r3c2.Text || r3c2.Text == r2c2.Text && r2c2.Text == r1c2.Text || r7c3.Text == r6c3.Text && r6c3.Text == r5c3.Text || r6c3.Text == r5c3.Text && r5c3.Text == r4c3.Text || r5c3.Text == r4c3.Text && r4c3.Text == r3c3.Text || r3c3.Text == r2c3.Text && r2c3.Text == r1c3.Text || r7c4.Text == r6c4.Text && r6c4.Text == r5c4.Text || r6c4.Text == r5c4.Text && r5c4.Text == r4c4.Text || r5c4.Text == r4c4.Text && r4c4.Text == r3c4.Text || r3c4.Text == r2c4.Text && r2c4.Text == r1c4.Text || r7c5.Text == r6c5.Text && r6c5.Text == r5c5.Text || r6c5.Text == r5c5.Text && r5c5.Text == r4c5.Text || r5c5.Text == r4c5.Text && r4c5.Text == r3c5.Text || r3c5.Text == r2c5.Text && r2c5.Text == r1c5.Text || r7c6.Text == r6c6.Text && r6c6.Text == r5c6.Text || r6c6.Text == r5c6.Text && r5c6.Text == r4c6.Text || r5c6.Text == r4c6.Text && r4c6.Text == r3c6.Text || r3c6.Text == r2c6.Text && r2c6.Text == r1c6.Text || r7c7.Text == r6c7.Text && r6c7.Text == r5c7.Text || r6c7.Text == r5c7.Text && r5c7.Text == r4c7.Text || r5c7.Text == r4c7.Text && r4c7.Text == r3c7.Text || r3c7.Text == r2c7.Text && r2c7.Text == r1c7.Text ||
-
-        //                    r7c1.Text == r6c1.Text && r6c1.Text == r5c1.Text || r7c2.Text == r6c2.Text && r6c2.Text == r5c2.Text || r7c3.Text == r6c3.Text && r6c3.Text == r5c3.Text || r7c4.Text == r6c4.Text && r6c4.Text == r5c4.Text || r7c5.Text == r6c5.Text && r6c5.Text == r5c5.Text || r7c6.Text == r6c6.Text && r6c6.Text == r5c6.Text || r7c7.Text == r6c7.Text && r6c7.Text == r5c7.Text)
-        //                {
-        //                    return true;
-        //                }
-        //        //    }
-        //        //}
-        //    }
-        //    return false;
-        //}
-        //public bool WinnerInRow()
-        //{
-        //    //for (int i = 0; i < 8; i++)
-        //    //{
-
-        //    //    for (int j = 8; j > i; j--)
-        //    //    {
-        //            //TextBlock child = (TextBlock)GridChildArray(j, b);
-        //            if (r8c0.Text == r8c1.Text || r8c1.Text == r8c3.Text || r8c3.Text == r8c4.Text || r8c4.Text == r8c5.Text || r7c0.Text == r7c1.Text || r7c1.Text == r7c2.Text || r7c2.Text == r7c3.Text || r7c3.Text == r7c4.Text || r7c4.Text == r7c5.Text || r6c0.Text == r6c1.Text || r6c1.Text == r6c2.Text || r6c2.Text == r6c3.Text || r6c3.Text == r6c4.Text || r6c4.Text == r6c5.Text || r5c0.Text == r5c1.Text || r5c1.Text == r5c2.Text || r5c2.Text == r5c3.Text || r5c3.Text == r5c4.Text || r5c4.Text == r5c5.Text || r4c0.Text == r4c1.Text || r4c1.Text == r4c2.Text || r4c2.Text == r4c3.Text || r4c3.Text == r4c4.Text || r4c4.Text == r4c5.Text || r3c0.Text == r3c1.Text || r3c1.Text == r3c2.Text || r3c2.Text == r3c3.Text || r3c3.Text == r3c4.Text || r3c4.Text == r3c5.Text || r2c0.Text == r2c1.Text || r2c1.Text == r2c2.Text || r2c2.Text == r2c3.Text || r2c3.Text == r2c4.Text || r2c4.Text == r2c5.Text /*|| r1c0.Text == r1c1.Text || r1c1.Text == r1c2.Text || r1c2.Text == r1c3.Text || r1c3.Text == r1c4.Text || r1c4.Text == r1c5.Text*/)
-        //            {
-
-        //                if (r8c1.Text == r8c2.Text && r8c2.Text == r8c3.Text || r8c2.Text == r8c3.Text && r8c3.Text == r8c4.Text || r8c3.Text == r8c4.Text && r8c4.Text == r8c5.Text || r8c4.Text == r8c5.Text && r8c5.Text == r8c6.Text || r8c5.Text == r8c6.Text && r8c6.Text == r8c7.Text || r7c1.Text == r7c2.Text && r7c2.Text == r7c3.Text || r7c2.Text == r7c3.Text && r7c3.Text == r7c4.Text || r7c3.Text == r7c4.Text && r7c4.Text == r7c5.Text || r7c4.Text == r7c5.Text && r7c5.Text == r7c6.Text || r7c5.Text == r7c6.Text && r7c6.Text == r7c7.Text||r6c1.Text == r6c2.Text && r6c2.Text == r6c3.Text || r6c2.Text == r6c3.Text && r6c3.Text == r6c4.Text || r6c3.Text == r6c4.Text && r6c4.Text == r6c5.Text || r6c4.Text == r6c5.Text && r6c5.Text == r6c6.Text || r6c5.Text == r6c6.Text && r6c6.Text == r6c7.Text || r5c1.Text == r5c2.Text && r5c2.Text == r5c3.Text || r5c2.Text == r5c3.Text && r5c3.Text == r5c4.Text || r5c3.Text == r5c4.Text && r5c4.Text == r5c5.Text || r5c4.Text == r5c5.Text && r5c5.Text == r5c6.Text || r5c5.Text == r5c6.Text && r5c6.Text == r5c7.Text || r4c1.Text == r4c2.Text && r4c2.Text == r4c3.Text || r4c2.Text == r4c3.Text && r4c3.Text == r4c4.Text || r4c3.Text == r4c4.Text && r4c4.Text == r4c5.Text || r4c4.Text == r4c5.Text && r4c5.Text == r4c6.Text || r4c5.Text == r4c6.Text && r4c6.Text == r4c7.Text || r3c1.Text == r3c2.Text && r3c2.Text == r3c3.Text || r3c2.Text == r3c3.Text && r3c3.Text == r3c4.Text || r3c3.Text == r3c4.Text && r3c4.Text == r3c5.Text || r3c4.Text == r3c5.Text && r3c5.Text == r3c6.Text || r3c5.Text == r3c6.Text && r3c6.Text == r3c7.Text || r2c1.Text == r2c2.Text && r2c2.Text == r2c3.Text || r2c2.Text == r2c3.Text && r2c3.Text == r2c4.Text || r2c3.Text == r2c4.Text && r2c4.Text == r2c5.Text || r2c4.Text == r2c5.Text && r2c5.Text == r2c6.Text || r2c5.Text == r2c6.Text && r2c6.Text == r2c7.Text || r1c1.Text == r1c2.Text && r1c2.Text == r1c3.Text || r1c2.Text == r1c3.Text && r1c3.Text == r1c4.Text || r1c3.Text == r1c4.Text && r1c4.Text == r1c5.Text || r1c4.Text == r1c5.Text && r1c5.Text == r1c6.Text || r1c5.Text == r1c6.Text && r1c6.Text == r1c7.Text)
-        //                {
-        //                    return true;
-        //                }
-        //        //    }
-        //        //}
-        //    }
-        //    return false;
-        //}
-        //public bool WinnerInDR()
-        //{
-
-        //    //for (int i = 0; i < 8; i++)
-        //    //{
-        //    //    for (int j = 8; j > i; j--)
-        //    //    {
-        //            //TextBlock child = (TextBlock)GridChildArray(j, b);
-        //            if (r4c0.Text == r3c1.Text || r5c0.Text == r4c1.Text || r4c1.Text == r3c2.Text || r4c2.Text == r3c3.Text||r6c0.Text == r5c1.Text ||r5c1.Text == r4c2.Text || r7c0.Text == r6c1.Text || r6c1.Text == r5c2.Text || r5c2.Text == r4c3.Text || r4c3.Text == r3c4.Text || r8c0.Text == r7c1.Text || r7c1.Text == r6c2.Text || r6c2.Text == r5c3.Text /*|| r5c3.Text == r4c4.Text || r4c4.Text == r3c5.Text || r8c1.Text == r7c2.Text || r7c2.Text == r6c3.Text || r6c3.Text == r5c4.Text || r5c4.Text == r4c5.Text || r8c2.Text == r7c3.Text *//*|| r7c3.Text == r6c4.Text || r6c4.Text == r5c5.Text*/ /*|| r8c3.Text == r7c4.Text || r7c4.Text == r6c5.Text || r8c4.Text == r7c5.Text*/)
-        //            {
-
-        //                if (r3c1.Text == r2c2.Text && r2c2.Text == r1c3.Text || r4c1.Text == r3c2.Text && r3c2.Text == r2c3.Text || r3c2.Text == r2c3.Text && r2c3.Text == r1c4.Text || r3c3.Text == r2c4.Text && r2c4.Text == r1c5.Text || r5c1.Text == r4c2.Text && r4c2.Text == r3c3.Text || r4c2.Text == r3c3.Text && r3c3.Text == r2c4.Text || r6c1.Text == r5c2.Text && r5c2.Text == r4c3.Text || r5c2.Text == r4c3.Text && r4c3.Text == r3c4.Text || r4c3.Text == r3c4.Text && r3c4.Text == r2c5.Text || r3c4.Text == r2c5.Text && r2c5.Text == r1c6.Text || r7c1.Text == r6c2.Text && r6c2.Text == r5c3.Text || r6c2.Text == r5c3.Text && r5c3.Text == r4c4.Text || r5c3.Text == r4c4.Text && r4c4.Text == r3c5.Text || r4c4.Text == r3c5.Text && r3c5.Text == r2c6.Text || r3c5.Text == r2c6.Text && r2c6.Text == r1c7.Text || r7c2.Text == r6c3.Text && r6c3.Text == r5c4.Text || r6c3.Text == r5c4.Text && r5c4.Text == r4c5.Text || r5c4.Text == r4c5.Text && r4c5.Text == r3c6.Text || r4c5.Text == r3c6.Text && r3c6.Text == r2c7.Text || r7c3.Text == r6c4.Text && r6c4.Text == r5c5.Text || r6c4.Text == r5c5.Text && r5c5.Text == r4c6.Text || r5c5.Text == r4c6.Text && r4c6.Text == r3c7.Text || r7c4.Text == r6c5.Text && r6c5.Text == r5c6.Text || r6c5.Text == r5c6.Text && r5c6.Text == r4c7.Text || r7c5.Text == r6c6.Text && r6c6.Text == r5c7.Text)
-        //                {
-        //                    return true;
-        //                }
-        //        //    }
-        //        //}
-        //    }
-        //    return false;
-        //}
-
+        //Start Game initialise board
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             grid1.Background = Brushes.DarkOrange;
             grid1.ShowGridLines = true;
+            
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+            Application.Current.Shutdown();
+        }
+
+        private void Button_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }

@@ -9,11 +9,14 @@
         Title="MainWindow" Height="756" Width="774.8">
     <Window.Resources>
         <Style TargetType="Button">
-            <Setter Property="Background" Value="OrangeRed"/>
-            <Setter Property="BorderThickness" Value="1.5"/>
+            <Setter Property="Background" Value="DarkGoldenrod"/>
+            <Setter Property="BorderThickness" Value="2"/>
         </Style>
+        <!--<Style TargetType="TextBlock">
+            <Setter Property="Visibility" Value="Hidden"/>
+        </Style>-->
     </Window.Resources>
-    <Grid Name="grid1" Margin="0,91,3,0.4">
+    <Grid Name="grid1" Grid.Column="{Binding [64], Source={x:Array Type=AddingNewItemEventArgs}}" Margin="0,91,-7,0.4">
         <Grid.ColumnDefinitions >
             <ColumnDefinition Width="90"/>
             <ColumnDefinition Width="*"/>
@@ -35,21 +38,21 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Tag="0" Grid.Row="0" Grid.Column="0" Height="auto" Width="auto" Background="Red"  PreviewMouseDown="coin1_Click" >Coin Drop</TextBlock>
-        <TextBlock Grid.Row="0" Grid.Column="1" Height="auto" Width="auto" Background="Blue" PreviewMouseDown="coin2_click">Coin Drop</TextBlock>
-        <TextBlock Grid.Row="0" Grid.Column="2" Height="auto" Width="auto" Background="Red" PreviewMouseDown="coin3_click">Coin Drop</TextBlock>
-        <TextBlock Grid.Row="0" Grid.Column="3" Height="auto" Width="auto" Background="Blue" PreviewMouseDown="coin4_click">Coin Drop</TextBlock>
-        <TextBlock Grid.Row="0" Grid.Column="4" Height="auto" Width="auto" Background="Red" PreviewMouseDown="coin5_click">Coin Drop</TextBlock>
-        <TextBlock Grid.Row="0" Grid.Column="5" Height="auto" Width="auto" Background="Blue" PreviewMouseDown="coin6_click">Coin Drop</TextBlock>
-        <TextBlock Grid.Row="0" Grid.Column="6" Height="auto" Width="auto" Background="Red" PreviewMouseDown="coin7_click">Coin Drop</TextBlock>
-        <TextBlock Grid.Row="0" Grid.Column="7" Height="auto" Width="auto" Background="Blue" PreviewMouseDown="coin8_click">coin drop</TextBlock>
+        <Button Tag="0" Grid.Row="0" Grid.Column="0" Height="auto" Width="auto" Click="coin1_Click" >Coin Drop</Button>
+        <Button Grid.Row="0" Grid.Column="1" Height="auto" Width="auto" PreviewMouseDown="coin2_click">Coin Drop</Button>
+        <Button Grid.Row="0" Grid.Column="2" Height="auto" Width="auto"  PreviewMouseDown="coin3_click">Coin Drop</Button>
+        <Button Grid.Row="0" Grid.Column="3" Height="auto" Width="auto"  PreviewMouseDown="coin4_click">Coin Drop</Button>
+        <Button Grid.Row="0" Grid.Column="4" Height="auto" Width="auto"  PreviewMouseDown="coin5_click">Coin Drop</Button>
+        <Button Grid.Row="0" Grid.Column="5" Height="auto" Width="auto"  PreviewMouseDown="coin6_click">Coin Drop</Button>
+        <Button Grid.Row="0" Grid.Column="6" Height="auto" Width="auto"  PreviewMouseDown="coin7_click">Coin Drop</Button>
+        <Button Grid.Row="0" Grid.Column="7" Height="auto" Width="auto"  PreviewMouseDown="coin8_click">coin drop</Button>
 
         <TextBlock Name="r1c0" Grid.Column="0" Grid.Row="1" Text="1"  Background="OrangeRed"/>
         <TextBlock Name="r2c0" Grid.Column="0" Grid.Row="2" Text="2"  Background="Red"/>
         <TextBlock Name="r3c0" Grid.Column="0" Grid.Row="3" Text="1"  Background="OrangeRed"/>
         <TextBlock Name="r4c0" Grid.Column="0" Grid.Row="4" Text="2"  Background="Red"/>
         <TextBlock Name="r5c0" Grid.Column="0" Grid.Row="5" Text="1"  Background="OrangeRed"/>
-        <TextBlock Name="r6c0" Grid.Column="0" Grid.Row="6" Text="2"  Background="Red"/>
+        <TextBlock Name="r6c0" Grid.Column="0" Grid.Row="6" Text="1"  Background="Red"/>
         <TextBlock Name="r7c0" Grid.Column="0" Grid.Row="7" Text="1"  Background="OrangeRed"/>
         <TextBlock Name="r8c0" Grid.Column="0" Grid.Row="8" Text="2"  Background="red"/>
 
@@ -115,12 +118,13 @@
         <TextBlock Name="r6c7" Grid.Column="7" Grid.Row="6" Text="1"  Background="Red"/>
         <TextBlock Name="r7c7" Grid.Column="7" Grid.Row="7" Text="3"  Background="OrangeRed"/>
         <TextBlock Name="r8c7" Grid.Column="7" Grid.Row="8" Text="2"  Background="red"/>
-        <Button x:Name="Start_Game" Content="Start Game" HorizontalAlignment="Left" VerticalAlignment="Top" Width="765" Margin="0,-91,-0.2,0" Grid.ColumnSpan="8" Height="86" Click="Button_Click" FontSize="48" FontWeight="Bold" FontStyle="Italic">
+        <Button x:Name="Start_Game" Content="Start Game" HorizontalAlignment="Left" VerticalAlignment="Top" Width="627" Margin="0,-91,0,0" Grid.ColumnSpan="7" Height="91" Click="Button_Click" FontSize="48" FontWeight="Bold" FontStyle="Italic">
             <Button.Background>
                 <ImageBrush ImageSource="shanron.jpg"/>
             </Button.Background>
 
         </Button>
+        <Button Grid.ColumnSpan="2" Content="Restart" Grid.Column="6" HorizontalAlignment="Left" Height="91" Margin="49.4,-91,0,0" VerticalAlignment="Top" Width="147" Click="Button_Click_1"/>
 
 
         <!--<TextBlock Grid.Column="0" Grid.Row="0" Text="2"  Background="black"/>-->
