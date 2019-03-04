@@ -180,11 +180,11 @@ namespace WpfApp2
         }
         private bool WinnerInRow()
         {
-            if (child.Text != "2" || child.Text != "1" || child.Text != "3")
-            {
-                for (int f = 0; f < 7; f++)
+            //if (child.Text != "2" || child.Text != "1" || child.Text != "3")
+            //{
+                for (int p = 8; p >= 1; p--)
                 {
-                        for (int p = 8; p >= 1 ; p--)
+                        for (int f = 0; f < 7-2; f++)
                         {
                             child = (TextBlock)GridChildArray(p, f);
                             child1 = (TextBlock)GridChildArray(p, f+1);
@@ -198,10 +198,10 @@ namespace WpfApp2
                                     return true;
                                 }
                             }
-                        break;
+                        
                         }
                 }
-            }
+            //}
             return false;
         }
         private bool WinnerInDR()
